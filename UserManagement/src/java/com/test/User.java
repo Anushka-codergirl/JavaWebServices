@@ -54,5 +54,20 @@ public class User implements Serializable{
     public void setJobRole(String jobRole) {
         this.jobRole = jobRole;
     }
-        
+    
+    @Override
+    public boolean equals(Object object)
+    {
+        if(object == null){
+            return false;
+        }else if(!(object instanceof User)){
+            return false;
+        }else{
+            User user = (User)object;
+            if(id == user.getId()&& name.equals(user.getName())&& jobRole.equals(user.getJobRole())){
+                return true;
+            }            
+        }
+        return false;
+    }    
 }
